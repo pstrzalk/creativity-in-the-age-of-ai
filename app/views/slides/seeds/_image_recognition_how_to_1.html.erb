@@ -1,0 +1,25 @@
+<ul class="w-full list-disc pl-8 text-4xl leading-loose mt-12">
+  <li>Any piece of information can be converted to an array of numbers (a vector called <span class="font-bold">embedding</span>)</li>
+</ul>
+
+<%= render partial: '/parts/code/ruby',
+           locals: { contents: '
+get_embedding("A dog eating a shoe")
+
+=> [-0.043732397, -0.030566277, 0.0011536668, -0.00047034802, 0.014166629, -0.008344825,
+    0.018574668, -0.009069832, 0.0004379493, 0.02746325, -0.033466306, 0.0028420258,
+    0.017139155, -0.059131537, 0.003597845, 0.020024681, -0.02520123, -0.023461213,
+    0.007989572, -0.025636233, -0.0007703195, -0.02975427, 0.024403721, -0.042137384,
+    0.010063091, 0.023983218, 0.0023345212, 0.008207074, 0.012665865, 0.017371157,
+    -0.03540932, 0.040339366, 0.015906645, 0.008149074, 0.018342666, 0.016008146,
+    0.022112701, 0.020764189, -0.009823839, 0.009555587, -0.007032564, 0.0029362766,
+    -0.055361502, 0.013666375, 0.039962362, 0.010128342, 0.018197665, 0.018212166,
+    -0.03520632, -6.0889226e-05, -0.005818178, 0.0016838278, 0.016283648, -0.035699323,
+    -0.031523287, 0.019256175, 0.0015143575, 0.017965663, -0.010831598, -0.0084463265,
+    ...]
+' } %>
+
+<ul class="w-full list-disc pl-8 text-4xl leading-loose mt-12">
+  <li>Each dimention represents a different aspect of the information</li>
+  <li>Embeddings can be compared, similar embeddings represent similar information</li>
+</ul>

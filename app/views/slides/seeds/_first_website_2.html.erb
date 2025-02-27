@@ -1,0 +1,32 @@
+<div class="w-full flex justify-center">
+  <div class="w-2/5">
+    <ul class="list-disc pl-8 text-4xl leading-loose">
+      <li>Launched on 6 August 1991</li>
+      <li>Included text, headings and links</li>
+      <li>Available at https://info.cern.ch/</li>
+      <li>Used HTML</li>
+    </ul>
+  </div>
+
+  <div class="w-3/5 items-center">
+    <%= render partial: '/parts/code/html', locals: { contents: '
+
+<HEADER>
+<TITLE>The World Wide Web project</TITLE>
+<NEXTID N="55">
+</HEADER>
+<BODY>
+<H1>World Wide Web</H1>The WorldWideWeb (W3) is a wide-area<A
+NAME=0 HREF="WhatIs.html">
+hypermedia</A> information retrieval
+initiative aiming to give universal
+access to a large universe of documents.<P>
+Everything there is online about
+W3 is linked directly or indirectly
+to this document, including an <A
+NAME=24 HREF="Summary.html">executive
+summary</A> of the project, <A
+NAME=29 HREF="Administration/Mailing/Overview.html">Mailing lists</A>
+...' } %>
+  </div>
+</div>

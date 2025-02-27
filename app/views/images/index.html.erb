@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Images" %>
+
+<h1>Images</h1>
+<%= link_to "Upload new image", new_image_path %>
+
+<hr>
+
+<div>
+  <%= form_with url: "/", method: :get do |form| %>
+    <%= form.label :query, "Search for:" %>
+    <%= form.text_field :query, value: params[:query] %>
+    <%= form.submit "Search" %>
+  <% end %>
+  <% if params[:query].present? %>
+    <%= link_to "Clear Search", root_path %>
+  <% end %>
+</div>
+
+<div id="images" style="margin-top: 20px;">
+  <% @images.each do |image| %>
+    <%= render image %>
+  <% end %>
+</div>

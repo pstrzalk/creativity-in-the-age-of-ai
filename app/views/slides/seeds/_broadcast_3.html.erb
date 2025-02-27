@@ -1,0 +1,28 @@
+<div class="w-100">
+    <%= render partial: '/parts/code/erb',
+              locals: { contents: '
+<div id="<％= dom_id(audio) ％>"
+     data-controller="audio"
+     data-audio-command-value="<％= audio.command ％>"
+     data-audio-commandparams-value="<％= audio.command_params.to_json ％>"></div>' } %>
+
+<%= render partial: '/parts/code/javascript',
+              locals: { contents: '
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  static values = {
+    command:       { type: String, default: "" },
+    commandparams: { type: Object, default: {} },
+    transcription: { type: String, default: "" },
+  }
+
+  connect() {
+    if (this.commandValue == "moveTo") {
+      window.moveTo(this.commandparamsValue.x, 0, 0);
+    }
+  }
+}
+' } %>
+
+</div>

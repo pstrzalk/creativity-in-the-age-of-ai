@@ -1,0 +1,7 @@
+<div class="audio" id="<%= dom_id(audio) %>"
+  data-controller="audio"
+  data-audio-transcription-value="<%= audio.transcription %>"
+  data-audio-command-value="<%= audio.command %>"
+  data-audio-commandparams-value="<%= audio.command_params.to_json %>"
+  data-audio-assistantmessage-value="<%= simple_format audio.assistant_message %>"
+></div>

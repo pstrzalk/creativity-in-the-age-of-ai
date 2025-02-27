@@ -1,0 +1,32 @@
+<div class="mt-8 w-full pl-2 text-2xl">
+  <% if params[:query].present? %>
+    Searching for: <span class="text-red-500 font-semibold"><%= params[:query] %></span>
+  <% end %>
+</div>
+
+<div class="mt-4 grid grid-cols-6 gap-4" id="images">
+  <%
+    images = Image.all.limit(12)
+    matching_image_ids = []
+
+    if params[:query].present?
+      query = "The image shows #{params[:query]}"
+      embedding = OpenAIClient
+        .embeddings(parameters: { model: "text-embedding-3-large", input: query })
+        .dig("data", 0, "embedding")
+
+      images_with_distance = Image.nearest_neighbors(:embedding, embedding, distance: "cosine")
+
+      pp "\n\n===Images with Distance:\n", images_with_distance.map { |img| [img.id, img.neighbor_distance].join(" / ") }.join("\n")
+      matching_image_ids = images_with_distance.first(1).map(&:id)
+    end
+  %>
+
+  <% images.each do |image| %>
+    <% background = matching_image_ids.include?(image.id) ? "bg-red-500" : "" %>
+
+    <%= render partial: "images/image", locals: { background: background, image: image } %>
+  <% end %>
+</div>
+
+<%= turbo_stream_from "images" %>

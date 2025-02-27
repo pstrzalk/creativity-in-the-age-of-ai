@@ -1,0 +1,192 @@
+<div class="">
+    <div class="container mx-auto px-4 py-8 bg-white shadow-md">
+        <!-- Filters and Products Container -->
+        <div class="flex gap-8">
+            <!-- Left Column - Filters -->
+            <div class="w-64 pl-6 pb-6 rounded-lg sticky">
+              <h2 class="text-2xl font-semibold mb-4">Filters</h2>
+
+              <form id="notebook_filters" name="notebook_filters" class="space-y-6 rounded-lg shadow-md">
+                <div class="flex flex-col">
+                  <label for="screen_diagonal" class="text-lg font-semibold text-gray-800 mb-2">Screen Diagonal</label>
+                  <select name="screen_diagonal" id="screen_diagonal" class="bg-gray-200 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3">
+                    <option value="">Select...</option>
+                    <option value="13">13"</option>
+                    <option value="15">15"</option>
+                    <option value="16">16"</option>
+                    <option value="20">20"</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col">
+                  <label for="hard_drive_size" class="text-lg font-semibold text-gray-800 mb-2">Hard Drive Size</label>
+                  <select name="hard_drive_size" id="hard_drive_size" class="bg-gray-200 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3">
+                    <option value="">Select...</option>
+                    <option value="256">256 GB</option>
+                    <option value="512">512 GB</option>
+                    <option value="1024">1024 GB</option>
+                    <option value="2048">2048 GB</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col">
+                  <label for="ram_size" class="text-lg font-semibold text-gray-800 mb-2">RAM Size</label>
+                  <select name="ram_size" id="ram_size" class="bg-gray-200 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3">
+                    <option value="">Select...</option>
+                    <option value="8">8 GB</option>
+                    <option value="16">16 GB</option>
+                    <option value="32">32 GB</option>
+                    <option value="48">48 GB</option>
+                  </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                  <div class="flex flex-col">
+                    <label for="price_min" class="text-lg font-semibold text-gray-800 mb-2">Min Price</label>
+                    <input type="number" name="price_min" id="price_min" class="bg-gray-200 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3" placeholder="e.g., 100" />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="price_max" class="text-lg font-semibold text-gray-800 mb-2">Max Price</label>
+                    <input type="number" name="price_max" id="price_max" class="bg-gray-200 border border-gray-400 text-gray-900 text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3" placeholder="e.g., 1000" />
+                  </div>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                  <input type="checkbox" name="available_only" id="available_only" class="w-5 h-5 text-blue-600 bg-gray-200 border-gray-400 rounded focus:ring-blue-600" />
+                  <label for="available_only" class="text-lg font-semibold text-gray-800">Available Only</label>
+                </div>
+
+                <div>
+                  <button type="submit" class="w-full bg-blue-600 text-white text-lg font-semibold rounded-lg p-3 hover:bg-blue-700 focus:ring-4 focus:ring-blue-500">Apply Filters</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right Column - Products -->
+            <div class="flex-1">
+                <!-- Top Banner -->
+                <div class="bg-blue-600 text-white p-4 mb-8 rounded-lg">
+                    <h2 class="text-xl font-semibold">New Arrivals</h2>
+                    <p class="mt-2">Check out our latest notebook releases!</p>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products" class="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+                    <!-- Notebook Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop1.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">XM Vulture 782"</h3>
+                            <p class="text-gray-600 mb-4">Fangora 71 chip</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notebook Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop2.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Kell IAP 1531</h3>
+                            <p class="text-gray-600 mb-4">Kell IAP 1531 Laptop with i7 processor</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notebook Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop3.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">RBY Tinerta X71</h3>
+                            <p class="text-gray-600 mb-4">RBY Tinerta X71 2-in-1 Laptop</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notebook Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop4.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Jerato Pro 21LK</h3>
+                            <p class="text-gray-600 mb-4">Jerato Pro with X9 chip</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notebook Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop5.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Mirote 1519</h3>
+                            <p class="text-gray-600 mb-4">Mirote 1519 Laptop with k7 processor</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notebook Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="/graphics/laptop6.webp" alt="Notebook"
+                             class="w-full h-48 object-cover">
+
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">MT Visual u410</h3>
+                            <p class="text-gray-600 mb-4">MT Visual u410 GB Laptop</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold"></span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more notebook cards as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="flex items-start gap-2.5 absolute top-10 right-10 hidden" id="notebook_filters_comment">
+    <div class="flex flex-col w-full max-w-[500px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
+          <span class="text-sm font-semibold text-gray-900 dark:text-white">Wizard</span>
+          <span class="text-sm font-normal text-gray-500 dark:text-gray-400">22:51</span>
+        </div>
+        <p class="text-lg font-normal py-2.5 text-gray-900 dark:text-white" id="notebook_filters_comment_text"></p>
+    </div>
+  </div>
+</div>
