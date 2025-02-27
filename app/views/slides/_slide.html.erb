@@ -1,0 +1,5 @@
+<% if slide.title.present? %>
+  <%= render partial: 'header', locals: { contents: slide.title } %>
+<% end %>
+
+<%= render slide.parts %>

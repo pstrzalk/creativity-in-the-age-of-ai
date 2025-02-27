@@ -1,0 +1,24 @@
+<div class="w-100 flex justify-center gap-4">
+  <div class="w-1/2">
+    <%= render partial: '/parts/container',
+              locals: { contents: 'In view, establish <span class="font-bold">audios</span> stream' } %>
+    <%= render partial: '/parts/code/ruby',
+              locals: { contents: '
+<div id="audios"></div>
+
+<％= turbo_stream_from "audios" ％>
+' } %>
+  </div>
+  <div class="w-1/2">
+<%= render partial: '/parts/container',
+           locals: { contents: 'Broadcast each new parsed audio' } %>
+<%= render partial: '/parts/code/ruby',
+           locals: { contents: '
+Turbo::StreamsChannel.broadcast_append_to(
+  "audios",
+  target: "audios",
+  partial: "audios/audio",
+  locals: { audio: audio }
+)' } %>
+  </div>
+</div>

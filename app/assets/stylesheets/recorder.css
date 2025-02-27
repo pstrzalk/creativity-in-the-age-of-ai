@@ -1,0 +1,7 @@
+button {
+  position: relative;
+
+  &.hidden {
+    display: none;
+  }
+}

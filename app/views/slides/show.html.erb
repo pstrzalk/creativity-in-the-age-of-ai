@@ -1,0 +1,46 @@
+<div class="w-full h-full font-normal overflow-hidden bg-black" data-controller="threejs">
+  <turbo-frame id="slide">
+    <div class="slide bg-background absolute top-0 right-0 left-0 bottom-0 p-6 md:px-24 md:py-14">
+      <%= render @slide %>
+    </div>
+  </turbo-frame>
+  <div class=""></div>
+  <div class="class flex justify-between">
+    <% if @slide_prev %>
+      <a href="<%= slide_path(@slide_prev) %>"
+        data-controller="slides"
+        data-action="keydown.n@window->slides#click keydown.page_up@window->slides#click"
+      >
+        <<
+      </a>
+    <% else %>
+      <div></div>
+    <% end %>
+
+    <% if @slide_next %>
+      <a href="<%= slide_path(@slide_next) %>"
+        data-controller="slides"
+        data-action="keydown.m@window->slides#click keydown.page_down@window->slides#click"
+      >
+        >>
+      </a>
+    <% else %>
+      <div></div>
+    <% end %>
+  </div>
+
+  <div data-controller="audioindex">
+    <div>
+      <button type="button" class="invisible" data-action="keydown.r@window->audioindex#startRecording" ></button>
+      <button type="button" class="invisible" data-action="keydown.t@window->audioindex#stopRecording"></button>
+      <button type="button" class="invisible" data-action="keydown.tab@window->audioindex#toggleRecording"></button>
+    </div>
+  </div>
+
+  <div id="audios"></div>
+  <%= turbo_stream_from "audios" %>
+</div>
+<div id="debug" class="hidden absolute top-0 bottom-0 right-0 w-12 flex flex-col bg-gray-100 items-center justify-center gap-2">
+  <div class="w-8 h-8 bg-black rounded-full" id="recordingIndicator"></div>
+  <div class="w-8 h-8 bg-green-500 rounded-full" id="otherIndicator"></div>
+</div>

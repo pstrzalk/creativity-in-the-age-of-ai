@@ -1,0 +1,15 @@
+<%= render partial: '/parts/code/ruby',
+           locals: { contents: '
+class Image < ApplicationRecord
+  has_neighbors :embedding
+
+  def describe
+    # ...
+    self.description = response.dig("choices", 0, "message", "content")
+  end
+
+  def embed_description
+    self.embedding = get_embedding(description)
+  end
+end
+' } %>

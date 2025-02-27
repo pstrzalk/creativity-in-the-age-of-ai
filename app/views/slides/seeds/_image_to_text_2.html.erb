@@ -1,0 +1,38 @@
+<div class="w-full h-auto relative text-xl">
+  <%= render partial: '/parts/code/ruby',
+           locals: { contents: '
+class Image < ApplicationRecord
+  has_one_attached :file
+
+  def describe
+    encoded_image = Base64.strict_encode64(file.download)
+    messages = [{
+      "type": "text", "text": "What’s in this image?"
+    }, {
+      "type": "image_url", "image_url": { "url": "data:image/png;base64,#{encoded_image}" }
+    }]
+
+    response = OpenAIClient.chat(
+      parameters: {
+        model: "gpt-4o-mini",
+        messages: [ { role: "user", content: messages } ]
+      }
+    )
+
+    self.description = response.dig("choices", 0, "message", "content")
+  end
+end
+' } %>
+
+  <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-50"></div>
+
+  <img src="/graphics/dog_eating_a_shoe.webp" class="w-2/5 absolute top-8 left-10">
+  <div class="absolute top-0 bottom-0 right-0 w-1/2 p-8 bg-white text-black text-4xl leading-normal content-center italic">
+    "The image shows a curly-coated puppy, possibly a poodle or a similar breed, playfully holding a sneaker in its mouth. The background is black, which emphasizes the puppy's fluffy fur and the shoe."
+  </div>
+</div>
+<script type="text/javascript">
+  setTimeout(
+    () => { window.animateModelComeAndBark() }, 1000
+  );
+</script>

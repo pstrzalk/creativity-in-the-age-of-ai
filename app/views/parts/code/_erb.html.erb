@@ -1,0 +1,6 @@
+<div class="bg-black text-green-300 text-3xl leading-10 font-mono p-4 mt-8 rounded-md overflow-x-auto highlight">
+  <pre><%=
+    Rouge::Formatters::HTML.new.format(
+      Rouge::Lexers::ERB.new.lex(contents.strip)
+    ).html_safe %></pre>
+</div>

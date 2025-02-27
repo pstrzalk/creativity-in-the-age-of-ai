@@ -1,0 +1,24 @@
+<%= render partial: '/parts/code/ruby',
+           locals: { contents: '
+class Image < ApplicationRecord
+  has_one_attached :file
+
+  def describe
+    encoded_image = Base64.strict_encode64(file.download)
+    messages = [{
+      "type": "text", "text": "What’s in this image?"
+    }, {
+      "type": "image_url", "image_url": { "url": "data:image/png;base64,#{encoded_image}" }
+    }]
+
+    response = OpenAIClient.chat(
+      parameters: {
+        model: "gpt-4o-mini",
+        messages: [ { role: "user", content: messages } ]
+      }
+    )
+
+    self.description = response.dig("choices", 0, "message", "content")
+  end
+end
+' } %>
