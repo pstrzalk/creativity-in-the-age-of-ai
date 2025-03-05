@@ -66,7 +66,7 @@ end
 
 gem "ruby-openai", "~> 7.3"
 
-gem "tailwindcss-rails", "~> 3.1"
+gem "tailwindcss-rails", "~> 4.2"
 gem "rouge"
 
 gem "sqlite-vec", platform: :ruby_33
