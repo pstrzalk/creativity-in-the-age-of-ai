@@ -64,7 +64,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "ruby-openai", "~> 7.3"
+gem "ruby-openai", "~> 8.1"
 
 gem "tailwindcss-rails", "~> 3.1"
 gem "rouge"
